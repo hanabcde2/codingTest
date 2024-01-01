@@ -3,4 +3,5 @@ let 짝수는싫어요 = (num) =>{
   return [...Array(num + 1).keys()].filter((n)=> n % 2)
 }
 
+console.log(짝수는싫어요(10))
 console.log(짝수는싫어요(15))
