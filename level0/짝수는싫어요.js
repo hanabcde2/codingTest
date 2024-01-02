@@ -4,5 +4,4 @@ let 짝수는싫어요 = (num) =>{
 }
 
 console.log(짝수는싫어요(10))
-
 console.log(짝수는싫어요(15))
