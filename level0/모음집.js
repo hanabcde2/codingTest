@@ -110,3 +110,100 @@ function 배열회전(numbers, direction) {
 
 // console.log(배열회전([1, 2, 3], 'right')) // [3, 1, 2]
 // console.log(배열회전([4, 455, 6, 4, -1, 45, 6], 'left')) // [455, 6, 4, -1, 45, 6, 4]
+
+
+
+function 주사위개수(box, n) {
+  return box.reduce((acc, cur) => acc * ~~(cur / n), 1);
+}
+
+// 주사위개수([1, 1, 1], 1)
+// console.log(주사위개수([10, 8, 6], 3))
+
+function 합성수(n) {
+  let answer = []
+  while (n > 3) {
+    if ((n % 2 === 0 || n % 3 === 0) || (n >= 10 && (n % 5 === 0 || n % 7 === 0))) answer.push(n)
+    n--
+  }
+  return answer.length
+}
+// 합성수(10)
+// 합성수(15)
+// 합성수(70)
+
+function 최댓값1(numbers) {
+  var answer = numbers.sort((a, b) => b - a);
+  return answer[0] * answer[1];
+}
+
+// 최댓값1([1, 2, 3, 4, 5]) //20
+// 최댓값1([0, 31, 24, 10, 1, 9]) // 744
+
+
+function 팩토리얼(n) {
+  let i = 1
+  let f = 1
+  while (f <= n) {
+    i++
+    f *= i
+  }
+  return i - 1
+}
+// 팩토리얼(3628800)
+// 팩토리얼(7)
+
+function 모음제거(my_string) {
+  let 모음 = {
+    a: null,
+    e: null,
+    i: null,
+    o: null,
+    u: null
+  }
+  return my_string.split('').reduce((acc, cur) => acc += (모음[cur] !== null ? cur : ''), '')
+}
+// best 풀이과정  my_string.replace(/[aeiou]/g, '');
+// 모음제거('bus') // "bs"
+// 모음제거('nice to meet you') // 	"nc t mt y"
+
+function 문자열정렬(my_string) {
+  return my_string.replace(/[^0-9]/g, '').split('').map((n) => n / 1).sort((a, b) => a - b);
+}
+// 문자열정렬("hi12392") // [1, 2, 2, 3, 9]
+// 문자열정렬("p2o4i8gj2") // [2, 2, 4, 8]
+// 문자열정렬("abcde0") // [0]
+
+function 숨어있는숫자(my_string) {
+  return my_string.replace(/[^0-9]/g, '').split('').reduce((acc, cur) => acc += (cur / 1), 0);
+}
+// console.log(숨어있는숫자("aAb1B2cC34oOp"))// 10
+// console.log(숨어있는숫자("1a2b3c4d123")) // 16
+
+function 소인수분해(n) {
+  var answer = [];
+  let i = 2
+  while (n >= 1 && i <= n) {
+    if (n % i === 0) {
+      answer.push(i)
+      n /= i
+    } else {
+      i++
+    }
+  }
+  return [...new Set(answer)]
+}
+// console.log(소인수분해(12)) // 	[2, 3]
+// console.log(소인수분해(17)) // 	[17]
+// console.log(소인수분해(420)) // 	[2, 3, 5, 7]
+
+
+function 연속된수의합(num, total) {
+  let 초기값 = Math.ceil(total / num) - ~~(num / 2)
+  return Array.from({ length: num }, (_, i) => i + 초기값)
+}
+
+console.log(연속된수의합(3, 12)) // 	[3, 4, 5]
+console.log(연속된수의합(5, 15)) // 	[1, 2, 3, 4, 5]
+console.log(연속된수의합(4, 14)) // 	[2, 3, 4, 5]
+console.log(연속된수의합(5, 5)) // [-1, 0, 1, 2, 3]
