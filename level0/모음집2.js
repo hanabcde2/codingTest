@@ -1,0 +1,68 @@
+function 가까운수(array, n) {
+  let answer = 0
+  let answer2 = 101
+  array.forEach((num) => {
+    if (answer2 > Math.abs(n - num) || (answer2 === Math.abs(n - num) && answer > num)) {
+      answer2 = Math.abs(n - num)
+      answer = num
+    }
+  })
+  return answer;
+}
+// Best 풀이과정 array.sort((a,b)=> Math.abs(n-a) - Math.abs(n - b) || a - b)
+// 가까운수([3, 10, 28], 20)
+// 가까운수([10, 11, 12], 9)
+// 가까운수([10, 11, 12], 12)
+
+
+function 게임369(order) {
+  // console.log('2', order.toString().split('').filter(n => ['3', '6', '9'].includes(n)).length)
+  return (order + '').replace(/[^3|6|9]/g, '').length
+}
+// Best (''+order).split(/[369]/).length-1;
+// 게임369(3) // 1
+// 게임369(2912423) // 2
+// 게임369(23336296) // 3
+// 게임369(2) // 0
+
+function 암호해독(cipher, code) {
+  return cipher.split('').filter((v, i) => (i + 1) % code === 0).join('');
+}
+
+// 암호해독("dfjardstddetckdaccccdegk", 4)//	"attack"
+// 암호해독("pfqallllabwaoclk", 2)//	"fallback"
+
+function 대문자와소문자(my_string) {
+  return Array.from(my_string, (v) => v === v.toUpperCase() ? v.toLowerCase() : v.toUpperCase()).join('');
+}
+// 대문자와소문자("cccCCC")
+// 대문자와소문자("abCdEfghIJ")
+
+function 영어가싫어요(numbers) {
+  const stringNumber = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+  return stringNumber.reduce((acc, cur, i) => acc.replaceAll(cur, i), numbers) / 1
+}
+// 영어가싫어요("onetwothreefourfivesixseveneightnine") // 123456789
+// 영어가싫어요("onefourzerosixseven")//14067
+
+function 인덱스바꾸기(my_string, num1, num2) {
+  my_string = my_string.split('')
+  [my_string[num1], my_string[num2]] = [my_string[num2], my_string[num1]]
+  return my_string.join('');
+}
+// 인덱스바꾸기("hello", 1, 2)
+// 인덱스바꾸기("I love you", 3, 6)
+
+function 한번만등장(s) {
+  return [...s].filter((v) => s.indexOf(v) === s.lastIndexOf(v)).join()
+}
+
+// 한번만등장("abcabcadc")
+// 한번만등장("abdc")
+// 한번만등장("hello")
+
+function 약수(n) {
+  return Array.from({ length: n }, (_, i) => i + 1).filter((v) => n % v === 0);
+}
+// 약수(24)
+// 약수(20)
