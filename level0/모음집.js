@@ -203,7 +203,38 @@ function 연속된수의합(num, total) {
   return Array.from({ length: num }, (_, i) => i + 초기값)
 }
 
-console.log(연속된수의합(3, 12)) // 	[3, 4, 5]
-console.log(연속된수의합(5, 15)) // 	[1, 2, 3, 4, 5]
-console.log(연속된수의합(4, 14)) // 	[2, 3, 4, 5]
-console.log(연속된수의합(5, 5)) // [-1, 0, 1, 2, 3]
+// console.log(연속된수의합(3, 12)) // 	[3, 4, 5]
+// console.log(연속된수의합(5, 15)) // 	[1, 2, 3, 4, 5]
+// console.log(연속된수의합(4, 14)) // 	[2, 3, 4, 5]
+// console.log(연속된수의합(5, 5)) // [-1, 0, 1, 2, 3]
+function 컨트롤제트(s) {
+  let arr = []
+  for (let str of s.split(' ')) {
+    if (str === 'Z' && arr.length) {
+      arr.pop()
+    } else {
+      arr.push(str)
+    }
+  }
+  return arr.reduce((acc, cur) => acc += cur / 1, 0)
+}
+// 컨트롤제트("1 2 Z 3") // 4
+// 컨트롤제트("10 20 30 40") // 100
+// 컨트롤제트("10 Z 20 Z 1") // 1
+
+
+function 중복된문자제거(my_string) {
+  return Array.from(new Set(my_string)).join('')
+}
+// 중복된문자제거("people")//"peol"
+// 중복된문자제거("We are the world")//	"We arthwold"
+
+function 삼각형완성조건1(sides) {
+  const [긴거, a, b] = sides.sort((a, b) => b - a)
+  return 긴거 >= (a + b) ? 2 : 1;
+}
+
+// 삼각형완성조건1([1, 2, 3]) // 2
+// 삼각형완성조건1([3, 6, 2]) // 2
+// 삼각형완성조건1([199, 72, 222]) // 1
+
