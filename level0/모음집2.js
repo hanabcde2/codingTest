@@ -66,3 +66,50 @@ function 약수(n) {
 }
 // 약수(24)
 // 약수(20)
+
+function 편지(message) {
+  return message.length * 2;
+}
+// 편지("happy birthday!") // 30
+// 편지("I love you~") // 22
+function 가장큰수찾기(array) {
+  return [Math.max(...array), array.indexOf(Math.max(...array))];
+}
+// 가장큰수찾기([1, 8, 3]) // [8, 1]
+// 가장큰수찾기([9, 10, 11, 8]) // [11, 2]
+
+function 문자열계산하기(my_string) {
+  return Function(`return ${my_string}`)()
+}
+// Best 풀이 return eval(my_string);
+
+// 문자열계산하기("3 + 4 + 3") // 10
+// 문자열계산하기("32 - 4") // 28
+
+function 배열의유사도(s1, s2) {
+  return (s1.length + s2.length) - new Set([...s1, ...s2]).size;
+}
+// 배열의유사도(["a", "b", "c"], ["com", "b", "d", "p", "c"])
+// 배열의유사도(["n", "omg"], ["m", "dot"])
+
+function 숫자찾기(num, k) {
+  return ('v' + num).indexOf(k)
+}
+// 숫자찾기(29183, 1) // 3
+// 숫자찾기(232443, 4) // 4
+
+function n의배수고르기(n, numlist) {
+  return numlist.filter((num) => num % n === 0);
+}
+function 자릿수더하기(n) {
+  return (n + '').split('').reduce((a, c) => a + c / 1, 0);
+}
+
+function OX퀴즈(quiz) {
+  return quiz.map((v) => {
+    [식, 답] = v.split(' = ')
+    return 답 == eval(식) ? 'O' : 'X'
+  });
+}
+// OX퀴즈(["3 - 4 = -3", "5 + 6 = 11"])
+// OX퀴즈(["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"])
