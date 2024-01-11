@@ -113,3 +113,42 @@ function OX퀴즈(quiz) {
 }
 // OX퀴즈(["3 - 4 = -3", "5 + 6 = 11"])
 // OX퀴즈(["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"])
+
+function 문자열안에문자열(str1, str2) {
+  return !!str1.match(str2) ? 1 : 2;
+}
+
+// 문자열안에문자열("ab6CDE443fgh22iJKlmn1o", "6CD") //1
+// 문자열안에문자열("ppprrrogrammers", "pppp") //2
+// 문자열안에문자열("AbcAbcA", "AAA") //2
+
+function 세균증식(n, t) {
+
+  return Array.from({ length: t - 1 }, (_, i) => (i)).reduce((a, c) => a = a * 2, n * 2);
+  //Best 풀이 bn << t
+  //Best  n*Math.pow(2,t)
+}
+// 세균증식(2, 10)
+// 세균증식(7, 15)
+
+function 문자열정렬하기2(str) {
+  return [...str.toLowerCase()].sort().join('')
+}
+function seven의개수(array) {
+  return array.join('').match(/7/g)?.length || 0
+}
+// seven의개수([7, 77, 17]) // 4
+function 잘라서배열로저장(my_str, n) {
+  return Array.from({ length: Math.ceil(my_str.length / n) }, (_, i) => (i)).map((v) => my_str.substr(v * n, n));
+  //best 풀이 my_str.match(new RegExp(`.{1,${n}}`, "g"));
+}
+// 잘라서배열로저장("abc1Addfggg4556b", 5)
+// 잘라서배열로저장("abcdef123", 3)
+
+
+function 머쓱이보다키큰사람(array, height) {
+  console.log(array.filter((k) => k > height))
+  return array.filter((k) => k > height).length;
+}
+머쓱이보다키큰사람([149, 180, 192, 170], 167)
+머쓱이보다키큰사람([180, 120, 140], 190)
