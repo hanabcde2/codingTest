@@ -6,12 +6,12 @@ function 최댓값과최솟값(s) {
 // 최댓값과최솟값("1 2 3 4") // '1 4'
 
 function 최솟값만들기(A, B) {
-  var answer = 0;
   A.sort((a, b) => a - b)
   B.sort((a, b) => b - a)
-  console.log(A.reduce((a, c, i) => a + c * B[i], 0))
-
-  return answer;
+  return A.reduce((a, c, i) => a + c * B[i], 0);
 }
 최솟값만들기([1, 4, 2], [5, 4, 4]) // 29
 최솟값만들기([1, 2], [3, 4]) // 10
+
+
+
