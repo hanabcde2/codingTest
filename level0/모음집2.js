@@ -150,5 +150,56 @@ function 머쓱이보다키큰사람(array, height) {
   console.log(array.filter((k) => k > height))
   return array.filter((k) => k > height).length;
 }
-머쓱이보다키큰사람([149, 180, 192, 170], 167)
-머쓱이보다키큰사람([180, 120, 140], 190)
+// 머쓱이보다키큰사람([149, 180, 192, 170], 167)
+// 머쓱이보다키큰사람([180, 120, 140], 190)
+
+
+
+function 직사각형(dots) {
+  const [[x1, y1], [x2, y2], [x3, y3], [x4, y4]] = dots
+  let width = Math.max(x1, x2, x3, x4) - Math.min(x1, x2, x3, x4)
+  let height = Math.max(y1, y2, y3, y4) - Math.min(y1, y2, y3, y4)
+  return width * height;
+}
+
+function 캐릭터좌표(keyinput, board) {
+  let result = [0, 0]
+
+  keyinput.forEach(v => {
+    if (v === 'left') {
+      result[0] -= 1
+    } else if (v === 'right') {
+      result[0] += 1
+    }
+    if (v === 'down') {
+      result[1] -= 1
+    } else if (v === 'up') {
+      result[1] += 1
+    }
+    if (Math.abs(result[0] * 2) > board[0]) {
+      result[0] > 0 ? result[0] = ~~(board[0] / 2) : result[0] = -(~~(board[0] / 2))
+    }
+    if ((Math.abs(result[1] * 2)) > board[1]) {
+      result[1] > 0 ? result[1] = ~~(board[1] / 2) : result[1] = -(~~(board[1] / 2))
+    }
+  })
+  return result;
+}
+
+// 캐릭터좌표(["left", "right", "up", "right", "right"], [11, 11])
+// 캐릭터좌표(["down", "down", "down", "down", "down"], [7, 9])
+// 캐릭터좌표(["left", "left", "left", "left", "left", 'right', 'right'], [5, 3])
+// 캐릭터좌표(["down", "down", "down", "down", "down"], [5, 3])
+// 캐릭터좌표(["right", "right", "right", "right", "right", "left"], [9, 5]) // 3,0
+
+function 최댓값2(numbers) {
+  numbers.sort((a, b) => b - a);
+  const firstTwo = numbers[0] * numbers[1]
+  const lastTwo = numbers[numbers.length - 1] * numbers[numbers.length - 2];
+  return firstTwo > lastTwo ? firstTwo : lastTwo;
+}
+
+최댓값2([-1, -2, -31, 2, 9]) // -2
+// 최댓값2([0, -31, 24, 10, 1, 9]) //240
+// 최댓값2([10, 20, 30, 5, 5, 20, 5]) // 600
+// 최댓값2([-10, -20, 30, 5, -5, -20, -5]) // 600
