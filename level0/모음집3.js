@@ -134,14 +134,54 @@ function 겹치는선분의길이(lines) {
 // 겹치는선분의길이([[-1, 1], [1, 3], [3, 9]])
 // 겹치는선분의길이([[0, 5], [3, 9], [1, 10]])
 
-function 유한소수판별(a, b) {
+// function 유한소수판별(a, b) {
+//   return !!((a / b).toString().length > 15) + 1
+// }
 
-  return !!((a / b).toString().length > 15) + 1
-
+function 특이한정렬(numlist, n) {
+  return numlist.sort((a, b) => Math.abs(a - n) - Math.abs(b - n) || b - a)
 }
-console.log(
-  유한소수판별(7, 20)
+// 특이한정렬([1, 2, 3, 4, 5, 6], 4) // 	[4, 5, 3, 6, 2, 1]
+// 특이한정렬([10000, 20, 36, 47, 40, 6, 10, 7000], 30)// [36, 40, 20, 47, 10, 6, 7000, 10000]
+function 등수매기기(score) {
+  let 평균리스트 = score.map(v => (v[0] + v[1]) / 2);
+  let 순위 = 평균리스트.slice().sort((a, b) => b - a)
+  return 평균리스트.map(v => 순위.indexOf(v) + 1)
+}
 
-)
-유한소수판별(11, 22)
-유한소수판별(12, 21)
+// 등수매기기([[80, 70], [90, 50], [40, 70], [50, 80]])
+// 등수매기기([[80, 70], [70, 80], [30, 50], [90, 100], [100, 90], [100, 100], [10, 30]])
+
+
+function 옹알이1(babbling) {
+  let answer = 0;
+  babbling.forEach(v => {
+    if (v.replace(/aya|ye|woo|ma/g, '').length === 0) answer += 1
+  })
+  return answer;
+}
+// 옹알이1(["aya", "yee", "u", "maa", "wyeoo"])
+// 옹알이1(["ayaye", "uuuma", "ye", "yemawoo", "ayaa"])
+function 로그인성공(id_pw, db) {
+  const id = db.filter(([id, pw]) => id === id_pw[0])
+  return id?.length > 0 ? id[0][1] === id_pw[1] ? "login" : "wrong pw" : "fail"
+}
+로그인성공(["meosseugi", "1234"], [["rardss", "123"], ["yyoom", "1234"], ["meosseugi", "1234"]])
+로그인성공(["programmer01", "15789"], [["programmer02", "111111"], ["programmer00", "134"], ["programmer01", "1145"]])
+로그인성공(["rabbit04", "98761"], [["jaja11", "98761"], ["krong0313", "29440"], ["rabbit00", "111333"]])
+
+function 치킨쿠폰(chicken) {
+  return ~~((chicken - 1) / 9)
+}
+
+// console.log(치킨쿠폰(100))
+// console.log(치킨쿠폰(110))
+// console.log(치킨쿠폰(120))
+// console.log(치킨쿠폰(1000))
+
+// console.log(치킨쿠폰(1081))
+
+function k의개수(i, j, k) {
+  return Array.from({ length: j - i + 1 }, (_, idx) => idx + i).join('').split(k).length - 1
+}
+// k의개수(1, 13, 1)
