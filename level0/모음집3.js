@@ -176,7 +176,7 @@ function 치킨쿠폰(chicken) {
 
 // console.log(치킨쿠폰(100))
 // console.log(치킨쿠폰(110))
-// console.log(치킨쿠폰(120))
+// console.log(치킨쿠폰(120)) 
 // console.log(치킨쿠폰(1000))
 
 // console.log(치킨쿠폰(1081))
@@ -185,3 +185,27 @@ function k의개수(i, j, k) {
   return Array.from({ length: j - i + 1 }, (_, idx) => idx + i).join('').split(k).length - 1
 }
 // k의개수(1, 13, 1)
+
+function 이진수더하기(bin1, bin2) {
+  return (parseInt(bin1, 2) + parseInt(bin2, 2)).toString('2')
+}
+// console.log(이진수더하기('10', '11'))
+// console.log(이진수더하기('1001', '1111'))
+
+function A로B만들기(before, after) {
+  before = before.split('').sort().join('')
+  after = after.split('').sort().join('')
+  return before === after ? 1 : 0
+}
+
+// A로B만들기('olleh', 'hello') // 1
+// A로B만들기('allpe', 'apple') // 0
+
+function 문자열밀기(A, B) {
+  console.log((B + B).indexOf(A))
+  return (B + B).indexOf(A);
+}
+문자열밀기("hello", "ohell")
+문자열밀기("apple", "elppa")
+문자열밀기("atat", "tata")
+문자열밀기("abc", "abc")

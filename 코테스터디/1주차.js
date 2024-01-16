@@ -105,24 +105,3 @@ const 주사위 = (N, 주사위면숫자) => {
 // 서로 마주보는 면의 인덱스의 합은 5 
 // 주사위(6, [3, 6, 26, 45, 10, 17]) // 752
 // 주사위(4, [6, 4, 8, 8, 2, 7]) // 280
-
-
-
-function solution(brown, yellow) {
-  const res = brown + yellow
-  let x, y
-  for (y = 3; y <= res / y; y++) {
-    x = ~~(res / y);
-    if ((x - 2) * (y - 2) === yellow) {
-      break;
-    }
-  }
-  return [x, y];
-}
-// console.log(
-//   solution(10, 2)
-// )
-// console.log(
-//   solution(8, 1))
-
-console.log(solution(24, 24)) // 8,6
