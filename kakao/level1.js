@@ -99,3 +99,26 @@ function 카카오1(friends, gifts) {
 //   ["joy", "brad", "alessandro", "conan", "david"],
 //   ["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]
 // ) // 4
+
+// 2022 kakao level1
+function 신고결과받기(id_list, report, k) {
+  let 답 = []
+  let 유저 = {}
+  id_list.forEach((name) => 유저[name] = [[], 0])
+  report.forEach((v) => {
+    const [신고자, 신고대상] = v.split(' ')
+    유저[신고대상][0].push(신고자)
+  })
+  id_list.forEach((name) => {
+    if (new Set(유저[name][0]).size >= k) {
+      new Set(유저[name][0]).forEach((v) => {
+        유저[v][1] += 1
+      })
+    }
+  })
+  id_list.forEach((name) => 답.push(유저[name][1]))
+  return 답;
+}
+
+// 신고결과받기(["muzi", "frodo", "apeach", "neo"], ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"], 2)
+신고결과받기(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)

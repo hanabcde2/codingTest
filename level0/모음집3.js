@@ -205,7 +205,24 @@ function 문자열밀기(A, B) {
   console.log((B + B).indexOf(A))
   return (B + B).indexOf(A);
 }
-문자열밀기("hello", "ohell")
-문자열밀기("apple", "elppa")
-문자열밀기("atat", "tata")
-문자열밀기("abc", "abc")
+// 문자열밀기("hello", "ohell")
+// 문자열밀기("apple", "elppa")
+// 문자열밀기("atat", "tata")
+// 문자열밀기("abc", "abc")
+
+function 종이자르기(M, N) {
+  return M * N - 1;
+}
+function 다음에올숫자(common) {
+  if (common[1] / common[0] !== common[2] / common[1]) {
+
+    return 2, common[common.length - 1] + (common[1] - common[0])
+  } else {
+    return 1, common[common.length - 1] * common[2] / common[1]
+
+  }
+
+}
+다음에올숫자([1, 2, 3, 4])
+다음에올숫자([2, 4, 8])
+다음에올숫자([3, 6, 12])
