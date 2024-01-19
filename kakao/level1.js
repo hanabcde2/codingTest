@@ -121,4 +121,5 @@ function 신고결과받기(id_list, report, k) {
 }
 
 // 신고결과받기(["muzi", "frodo", "apeach", "neo"], ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"], 2)
-신고결과받기(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)
+// 신고결과받기(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)
+

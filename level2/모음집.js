@@ -15,3 +15,18 @@ function 최솟값만들기(A, B) {
 
 
 
+function 다음큰숫자(n, i = 0) {
+  let answer = 0;
+  const n1개수 = n.toString(2).replaceAll(0, '').length
+  while (true) {
+    i++
+    const 답1의개수 = (n + i).toString(2).replaceAll(0, '').length
+    if (n1개수 === 답1의개수) {
+      answer = (n + i)
+      break
+    }
+  }
+  return answer
+}
+
+// 다음큰숫자(78)

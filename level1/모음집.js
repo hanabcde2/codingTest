@@ -79,4 +79,51 @@ function 두정수사이의합(a, b, answer = 0) {
 function 음양더하기(absolutes, signs) {
   return absolutes.reduce((a, c, i) => a + (c * (signs[i] ? 1 : -1)), 0);
 }
-음양더하기([4, 7, 12], [true, false, true])
+// 음양더하기([4, 7, 12], [true, false, true])
+
+function 콜라츠추측(num) {
+  let answer = 0;
+  while (num != 1 && answer != 500) {
+    num % 2 == 0 ? num = num / 2 : num = num * 3 + 1;
+    answer++;
+  }
+  return num == 1 ? answer : -1;
+}
+
+// 콜라츠추측(6)
+
+function 서울에서김서방찾기(seoul) {
+  return `김서방은 ${seoul.indexOf('Kim')}에 있다`;
+}
+// 서울에서김서방찾기(["Jane", "Kim"])
+
+function 나누어떨어지는숫자배열(arr, divisor) {
+  let answer = arr.filter((n) => n % divisor === 0).sort((a, b) => a - b)
+  return answer.length ? answer : [-1];
+}
+// console.log(
+
+//   나누어떨어지는숫자배열([5, 9, 7, 10], 5),
+//   나누어떨어지는숫자배열([2, 36, 1, 3], 1),
+//   나누어떨어지는숫자배열([3, 2, 6], 10)
+// )
+function 없는숫자더하기(numbers, i = 0) {
+  let answer = 0;
+  while (i != 10) {
+    numbers.indexOf(i) === -1 ? answer += i : ''
+    i++
+  }
+  return answer;
+}
+// console.log(
+//   없는숫자더하기([1, 2, 3, 4, 6, 7, 8, 0]),
+//   없는숫자더하기([5, 8, 4, 0, 6, 7, 9])
+// )
+
+function 핸드폰번호가리기(phone_number) {
+  return phone_number.replace(phone_number.substring(0, phone_number.length - 4), '*'.repeat(phone_number.length - 4));
+}
+console.log(
+  핸드폰번호가리기("01033334444"),
+  핸드폰번호가리기("027778888")
+)
