@@ -30,3 +30,20 @@ function 다음큰숫자(n, i = 0) {
 }
 
 // 다음큰숫자(78)
+function 영어끝말잇기(n, words) {
+  let 말한단어들 = []
+  let 답 = [0, 0]
+  for (let i = 0; i < words.length; i++) {
+    let 마지막글자 = 말한단어들[말한단어들?.length - 1]
+    let 첫글자 = words[i][0]
+    if (i > 0 && (말한단어들.includes(words[i]) || 마지막글자?.charAt(마지막글자?.length - 1) !== 첫글자)) {
+      답 = [말한단어들.length % n + 1, Math.ceil((i + 1) / n)]
+      break
+    }
+    말한단어들.push(words[i])
+  }
+  return 답;
+}
+// 영어끝말잇기(3, ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"])
+// 영어끝말잇기(5, ["hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"])
+// 영어끝말잇기(2, ["hello", "one", "even", "never", "now", "world", "draw"])
