@@ -123,7 +123,33 @@ function 없는숫자더하기(numbers, i = 0) {
 function 핸드폰번호가리기(phone_number) {
   return phone_number.replace(phone_number.substring(0, phone_number.length - 4), '*'.repeat(phone_number.length - 4));
 }
-console.log(
-  핸드폰번호가리기("01033334444"),
-  핸드폰번호가리기("027778888")
-)
+// console.log(
+//   핸드폰번호가리기("01033334444"),
+//   핸드폰번호가리기("027778888")
+// )ㅂ
+function 제일작은수제거하기(arr) {
+  return arr.length > 1 ? arr.filter((n) => n > Math.min(...arr)) : [-1];
+}
+// console.log(
+//   제일작은수제거하기([4, 3, 2, 1]),
+//   제일작은수제거하기([10]),
+//   제일작은수제거하기([1, 2, 3, 4]),
+// )
+function 내적(a, b) {
+  return a.reduce((a, c, i) => a += c * b[i], 0);
+}
+// console.log(
+//   내적([1, 2, 3, 4], [-3, -1, 0, 2]), //3
+//   내적([-1, 0, 1], [1, 0, -1]), //-2
+// )
+function 수박수박수박(n) {
+  console.log(
+
+
+  )
+  return Array.from({
+    length: n
+  }, ((_, i) => (i + 1) % 2 !== 0 ? '수' : '박')).join('');
+}
+수박수박수박(3)
+수박수박수박(4)
