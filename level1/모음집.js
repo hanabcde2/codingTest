@@ -143,13 +143,58 @@ function 내적(a, b) {
 //   내적([-1, 0, 1], [1, 0, -1]), //-2
 // )
 function 수박수박수박(n) {
+  return Array.from({ length: n }, ((_, i) => (i + 1) % 2 !== 0 ? '수' : '박')).join('');
+}
+// 수박수박수박(3)
+// 수박수박수박(4)
+function 약수의개수와덧셈(left, right) {
+  let answer = 0;
+  for (let i = left; i <= right; i++) {
+    let 약수 = []
+    for (let j = 1; j <= i; j++) {
+      if (i % j === 0) {
+        약수.push(j)
+      }
+    }
+    약수.length % 2 === 0 ? answer += i : answer -= i
+  }
+  return answer;
+}
+// for (let i = left; i <= right; i++) {
+//   if (Number.isInteger(Math.sqrt(i))) {
+//       answer -= i;
+//   } else {
+//       answer += i;
+//   }
+// }
+// 제곱근이 정수면 약수의 개수는 홀수이다...
+// 약수의개수와덧셈(13, 17) // 43
+// 약수의개수와덧셈(24, 27) // 52
+
+function 문자열내림차순배치(s) {
+  return s.split('').sort().reverse().join('');
+}
+// 문자열내림차순배치("Zbcdefg")
+
+function 부족한금액계산기(price, money, count) {
+  let 요금 = Array.from({ length: count }, (_, i) => (i + 1) * price).reduce((a, c) => a + c, 0)
+  return 요금 > money ? 요금 - money : 0;
+}
+// console.log(
+//   부족한금액계산기(3, 20, 4)
+// )
+
+function 문자열다루기기본(s) {
+  return s.match(/[0-9]/g)?.length === s?.length && (s.length === 4 || s.length === 6);
+}
+
+function 행렬의덧셈(arr1, arr2) {
   console.log(
 
-
+    arr1.map((v, i) => v.map((n, j) => n + arr2[i][j]))
   )
-  return Array.from({
-    length: n
-  }, ((_, i) => (i + 1) % 2 !== 0 ? '수' : '박')).join('');
+  // console.log(arr1)
+  return;
 }
-수박수박수박(3)
-수박수박수박(4)
+행렬의덧셈([[1, 2], [2, 3]], [[3, 4], [5, 6]])
+// 행렬의덧셈([[1], [2]], [[3], [4]])
