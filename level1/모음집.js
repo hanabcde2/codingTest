@@ -189,12 +189,62 @@ function 문자열다루기기본(s) {
 }
 
 function 행렬의덧셈(arr1, arr2) {
-  console.log(
 
-    arr1.map((v, i) => v.map((n, j) => n + arr2[i][j]))
-  )
-  // console.log(arr1)
-  return;
+  return arr1.map((v, i) => v.map((n, j) => n + arr2[i][j]));
 }
-행렬의덧셈([[1, 2], [2, 3]], [[3, 4], [5, 6]])
+// 행렬의덧셈([[1, 2], [2, 3]], [[3, 4], [5, 6]])
 // 행렬의덧셈([[1], [2]], [[3], [4]])
+
+const 직사각형별찍기 = () => {
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('data', data => {
+    const n = data.split(" ");
+    const a = Number(n[0]), b = Number(n[1]);
+    for (let i = 0; i < b; i++) {
+      console.log('*'.repeat(a))
+    }
+  });
+}
+// 직사각형별찍기()
+
+function 최대공약수와최소공배수(n, m) {
+  const gcd = (a, b) => b ? gcd(b, a % b) : a;
+  const lcm = n * m / gcd(n, m);
+  return [gcd(m, n % m), lcm];
+}
+// console.log(
+//   최대공약수와최소공배수(3, 12),
+//   최대공약수와최소공배수(2, 5)
+// )
+
+const 같은숫자는싫어 = (arr) => arr.filter((v, i) => v !== arr[i - 1])
+
+// 같은숫자는싫어([1, 1, 3, 3, 0, 1, 1])
+// 같은숫자는싫어([4, 4, 4, 3, 3])
+function 진법뒤집기3(n) {
+
+  return parseInt([...n.toString(3)].reverse().join(''), 3);
+}
+// 진법뒤집기3(45)
+// 진법뒤집기3(125)
+function 예산(d, budget) {
+  let i, sum = 0;
+  d.sort((a, b) => a - b)
+  for (i = 0; i <= d.length; i++) {
+    if (sum + d[i] <= budget) {
+      sum += d[i]
+    } else {
+      break
+    }
+  }
+  return i;
+}
+// 예산([1, 3, 2, 5, 4], 9)
+// 예산([2, 2, 3, 3, 1, 2], 10)
+function 이상한문자만들기(s) {
+  return s.split(' ').map((str) => str.split('').map((v, i) => (i + 1) % 2 !== 0 ? v.toUpperCase() : v.toLowerCase()).join('')).join(' ')
+}
+console.log(
+
+  이상한문자만들기("try hello world") //"TrY HeLlO WoRlD"
+)
