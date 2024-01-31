@@ -244,7 +244,33 @@ function 예산(d, budget) {
 function 이상한문자만들기(s) {
   return s.split(' ').map((str) => str.split('').map((v, i) => (i + 1) % 2 !== 0 ? v.toUpperCase() : v.toLowerCase()).join('')).join(' ')
 }
-console.log(
+// console.log(   이상한문자만들기("try hello world") //"TrY HeLlO WoRlD")
+function 크기가작은부분문자열(t, p) {
+  let answer = 0;
+  for (let i = 0; i <= t.length - p.length; i++) {
+    if (+t.substring(i, i + p.length) <= +p) {
+      answer++
+    }
+  }
+  return answer;
+}
 
-  이상한문자만들기("try hello world") //"TrY HeLlO WoRlD"
-)
+// 크기가작은부분문자열("3141592", "271")//2
+
+function 삼총사(number) {
+  let answer = 0;
+  const 재귀함수 = (idx) => {
+    if (idx > number.length - 2) return
+    for (let i = idx + 1; i < number.length; i++) {
+      for (let j = i + 1; j < number.length; j++) {
+        if ((number[idx] + number[i] + number[j]) === 0) answer++
+      }
+    }
+    재귀함수(idx + 1)
+  }
+  재귀함수(0)
+  return answer;
+}
+삼총사([-2, 3, 0, 2, -5])	//2
+삼총사([-3, -2, -1, 0, 1, 2, 3])	//5
+삼총사([-1, 1, -1, 1])	// 0

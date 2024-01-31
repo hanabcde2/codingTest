@@ -8,10 +8,10 @@ function 두개뽑아서더하기(numbers) {
   }
   return [...new Set(답)].sort((a, b) => a - b)
 }
-// console.log(
-//   두개뽑아서더하기([2, 1, 3, 4, 1]),
-//   두개뽑아서더하기([5, 0, 2, 7])
-// )
+console.log(
+  두개뽑아서더하기([2, 1, 3, 4, 1]),
+  두개뽑아서더하기([5, 0, 2, 7])
+)
 
 
 // 문제 2 바닥 장식
@@ -22,6 +22,7 @@ const 문제2 = () => {
   let 세로나무 = 0
   for (let i = 0; i < +N; i++) {
     세로나무 += 나무판자들[i].split('').filter(v => v === '|').length
+    console.log('나무판자들[i]', 나무판자들[i])
     나무판자들[i].split('').forEach((나무, idx) => {
       if (나무 !== '|' && 나무 !== 나무판자들[i].charAt(idx + 1)) {
         가로나무++
@@ -84,7 +85,7 @@ const floodFill = function (image, sr, sc, newColor) {
 // floodFill([[0, 0, 0], [0, 0, 0]], 0, 0, 0)
 
 
-//문제5
+//문제5 풀이봄 아직 이해 못함,,
 const DFS와BFS = function () {
   const bfs = (graph, startNode) => {
     const visited = [];
