@@ -123,3 +123,28 @@ function 신고결과받기(id_list, report, k) {
 // 신고결과받기(["muzi", "frodo", "apeach", "neo"], ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"], 2)
 // 신고결과받기(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)
 
+//2021 카카오 채용연계형 인턴십
+const 숫자문자열과영단어 = (s) => {
+  const number = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9
+  }
+  s.match(/zero|one|two|three|four|five|six|seven|eight|nine/g)?.forEach(v => s = s.replace(v, number[v]))
+  console.log(s)
+  return +s
+
+}
+
+// 숫자문자열과영단어("one4seveneight") // 1478
+// 숫자문자열과영단어("23four5six7") // 234567
+숫자문자열과영단어("zeroonetwo") // 012
+// 숫자문자열과영단어("2three45sixseven") // 234567
+// 숫자문자열과영단어("123") // 123
