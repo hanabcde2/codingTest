@@ -138,13 +138,19 @@ const 숫자문자열과영단어 = (s) => {
     nine: 9
   }
   s.match(/zero|one|two|three|four|five|six|seven|eight|nine/g)?.forEach(v => s = s.replace(v, number[v]))
-  console.log(s)
   return +s
-
 }
-
+// function solution(s) {
+//     let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+//     var answer = s;
+//     for(let i=0; i< numbers.length; i++) {
+//         let arr = answer.split(numbers[i]);
+//         answer = arr.join(i);
+//     }
+//     return Number(answer);
+// }
 // 숫자문자열과영단어("one4seveneight") // 1478
 // 숫자문자열과영단어("23four5six7") // 234567
-숫자문자열과영단어("zeroonetwo") // 012
+// 숫자문자열과영단어("zeroonetwo") // 012
 // 숫자문자열과영단어("2three45sixseven") // 234567
 // 숫자문자열과영단어("123") // 123
