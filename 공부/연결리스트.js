@@ -81,7 +81,6 @@ l.append(20)
 l.append(30)
 l.insert(2, 1000)
 console.log(
-
   l.length(),
   l.toString()
 )

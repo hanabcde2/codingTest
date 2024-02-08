@@ -47,3 +47,17 @@ function 영어끝말잇기(n, words) {
 // 영어끝말잇기(3, ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"])
 // 영어끝말잇기(5, ["hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"])
 // 영어끝말잇기(2, ["hello", "one", "even", "never", "now", "world", "draw"])
+
+function 가장큰수(numbers) {
+  var answer = numbers
+    .map((v) => v + "")
+    .sort((a, b) => (b + a) * 1 - (a + b) * 1)
+    .join("");
+
+  return answer[0] === "0" ? "0" : answer;
+
+}
+
+가장큰수([659, 691, 12, 34, 5, 9, 6, 6, 6]) // 9534330
+// 가장큰수([6, 10, 2]) // 9534330
+// 가장큰수([3, 30, 34, 5, 9]) // 9534330

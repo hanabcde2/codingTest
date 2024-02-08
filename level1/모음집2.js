@@ -61,3 +61,25 @@ const 푸드파이트대회 = (food) => {
 }
 // 푸드파이트대회([1, 3, 4, 6]) // "1223330333221"
 // 푸드파이트대회([1, 7, 1, 2]) // "111303111"
+
+function K번째수(array, commands) {
+  return commands.map(([i, j, k]) => array.slice(i - 1, j).sort((a, b) => a - b)[k - 1]);
+}
+// K번째수([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]) // 	[5, 6, 3]
+
+function 문자열내맘대로정렬하기(strings, n) {
+  let sortedStr = strings.sort();
+  return sortedStr.sort((a, b) => a[n].charCodeAt() - b[n].charCodeAt());
+}
+
+function 콜라문제(a, b, n) {
+  let result = 0;
+  while (n >= a) {
+    const 받는콜라 = ~~(n / a) * b
+    n = n % a + 받는콜라
+    result += 받는콜라
+  }
+  return result;
+}
+콜라문제(2, 1, 20)
+콜라문제(3, 1, 20)
