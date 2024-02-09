@@ -81,5 +81,43 @@ function 콜라문제(a, b, n) {
   }
   return result;
 }
-콜라문제(2, 1, 20)
-콜라문제(3, 1, 20)
+// 콜라문제(2, 1, 20)
+// 콜라문제(3, 1, 20)
+
+function 추억점수(name, yearning, photo) {
+  const 추억의이름 = {}
+  name.forEach((이름, i) => 추억의이름[이름] = yearning[i])
+  return photo.map(사진 => {
+    let 점수 = 0
+    for (let i = 0; i < 사진.length; i++) {
+      if (추억의이름[사진[i]]) {
+        점수 += 추억의이름[사진[i]]
+      }
+    }
+    return 점수
+  })
+}
+// 추억점수(["may", "kein", "kain", "radi"], [5, 10, 1, 3], [["may", "kein", "kain", "radi"], ["may", "kein", "brin", "deny"], ["kon", "kain", "may", "coni"]])
+// 추억점수(["kali", "mari", "don"], [11, 1, 55], [["kali", "mari", "don"], ["pony", "tom", "teddy"], ["con", "mona", "don"]])
+// 추억점수(["may", "kein", "kain", "radi"], [5, 10, 1, 3], [["may"], ["kein", "deny", "may"], ["kon", "coni"]])
+
+function 명예의전당1(k, score) {
+
+  const 명예의전당 = []
+  const 발표점수 = []
+  k = k - 1
+  for (let i = 0; i < score.length; i++) {
+    if (isNaN(명예의전당[k])) {
+      명예의전당.push(score[i])
+    } else if (명예의전당[k] < score[i]) {
+      명예의전당.pop()
+      명예의전당.push(score[i])
+    }
+    발표점수.push(Math.min(...명예의전당))
+    명예의전당.sort((a, b) => b - a)
+  }
+  return 발표점수;
+}
+
+명예의전당1(3, [10, 100, 20, 150, 1, 100, 200])
+명예의전당1(4, [0, 300, 40, 300, 20, 70, 150, 50, 500, 1000])

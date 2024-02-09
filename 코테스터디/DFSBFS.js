@@ -129,7 +129,3 @@ const DFS와BFS = function () {
 
 };
 
-//문제6
-const 토마토 = function () {
-
-};

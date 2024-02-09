@@ -39,4 +39,4 @@ function 여행경로(tickets) {
 }
 
 // 여행경로([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]) //["ICN", "JFK", "HND", "IAD"]
-여행경로([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL", "SFO"]]) //["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
+// 여행경로([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL", "SFO"]]) //["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
