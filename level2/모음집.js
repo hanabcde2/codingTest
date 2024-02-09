@@ -58,6 +58,47 @@ function 가장큰수(numbers) {
 
 }
 
-가장큰수([659, 691, 12, 34, 5, 9, 6, 6, 6]) // 9534330
-// 가장큰수([6, 10, 2]) // 9534330
-// 가장큰수([3, 30, 34, 5, 9]) // 9534330
+function 게임맵최단거리(maps) {
+  const yLen = maps.length;
+  const xLen = maps[0].length;
+  const goalY = yLen - 1;
+  const goalX = xLen - 1;
+  const dy = [0, 0, 1, -1];
+  const dx = [-1, 1, 0, 0];
+
+  const queue = [];
+  queue.push([0, 0, 1]);
+
+  while (queue.length) {
+    const [curY, curX, move] = queue.shift();
+    if (curY === goalY && curX === goalX) return move;
+    for (let i = 0; i < 4; i++) {
+      const ny = curY + dy[i]
+      const nx = curX + dx[i]
+      // console.log('curY', curY, 'curX', curX,)
+      // console.log('dy', dy[i], 'dx', dx[i])
+      if (ny >= 0 && ny < yLen && nx >= 0 && nx < xLen && maps[ny][nx] === 1) {
+        // console.log('ny', ny, 'nx', nx, 'maps[ny][nx] ', maps[ny][nx])
+        queue.push([ny, nx, move + 1]);
+        maps[ny][nx] = 0;
+      }
+    }
+  }
+
+  return -1;
+}
+
+게임맵최단거리([
+  [1, 0, 1, 1, 1],
+  [1, 0, 1, 0, 1],
+  [1, 0, 1, 1, 1],
+  [1, 1, 1, 0, 1],
+  [0, 0, 0, 0, 1]
+]) // 11
+게임맵최단거리([
+  [1, 0, 1, 1, 1],
+  [1, 0, 1, 0, 1],
+  [1, 0, 1, 1, 1],
+  [1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 1]
+]) // -1
